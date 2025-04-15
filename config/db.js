@@ -1,11 +1,12 @@
 const mongoose=require('mongoose');
-
+const dotenv=require('dotenv');
+dotenv.config();
 const dbConnect=async()=>{
     try{
-        await mongoose.connect("mongodb+srv://akshimital549:akshi1234@cluster0.pwgqnav.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0;");
+        await mongoose.connect(process.env.MONGO_URI);
         console.log("MongoDb connected");
     }catch(err){
-        console.log("MongoDb connection failed");
+        console.log("MongoDb connection failed:", err.message);
     }
 }
 module.exports=dbConnect;
