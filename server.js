@@ -1,7 +1,8 @@
 const express=require("express");
 const dbConnect=require("./config/db");
 const bugRoutes=require("./routes/bugRoutes");
-
+const dotenv=require("dotenv");
+dotenv.config();
 const app=express();
 app.use(express.json());
 dbConnect();
